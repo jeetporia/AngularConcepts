@@ -1,3 +1,13 @@
 <h1>
-  Hello world!
+  <app-progress-bar [progress]="counterProgress"></app-progress-bar>
+  <app-countdown #countDown
+  [init]="totalCountDown"
+  (OnDecrease)="decreaseCoutner($event)"
+  (OnComplete)="completeCounter()"
+  ></app-countdown>
+  <div class="initInput">
+    <label for="totalCountDown">Init On</label>
+    <input id="totalCountDown" type="text" [(ngModel)]="totalCountDown">
+  </div>
+  <button (click)="countDown.startCountDown(); counterProgress = 0;">Restart</button>
 </h1>
